@@ -12,25 +12,27 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import model.Materia;
  
 
 public class PDFRead {
     
-  public static void isLinhaDeNota(String linha){
-     
+  public static ArrayList isLinhaDeNota(String linha){
+      
+        ArrayList materias_cursadas = new ArrayList<>();
+       
      if ( linha.contains("Aprovado") || linha.contains("Dispensa") || linha.contains("Reprovado")){ 
          String [] frase = linha.split("\\s+");
          for (int j = 0; j < frase.length; j++) {
          String codigo = frase[0];
          String situacao = frase[frase.length-1];
          Materia materia = new Materia(codigo, situacao);
-         System.out.println(codigo + situacao );
-        }
+         materias_cursadas.add(materia);
+//         System.out.println(codigo + situacao );
+         }
      }
-        else{
-         // nao contem;
-                }
+        return materias_cursadas;
   }
     
   public static void main(String args[]){
@@ -53,13 +55,12 @@ public class PDFRead {
                    
 //                System.out.println(token);
             }
-	  //Print the page content on console.
 //	  System.out.println(var_1);
       }
  
       //Close the PdfReader.
       pdfReader.close();
-    } catch (Exception e) {
+      } catch (Exception e) {
 	e.printStackTrace();
     }
   }
