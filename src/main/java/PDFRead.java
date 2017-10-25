@@ -12,21 +12,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import model.Materia;
  
-
- 
-   
 
 public class PDFRead {
     
   public static void isLinhaDeNota(String linha){
-       
+     
      if ( linha.contains("Aprovado") || linha.contains("Dispensa") || linha.contains("Reprovado")){ 
          String [] frase = linha.split("\\s+");
          for (int j = 0; j < frase.length; j++) {
          String codigo = frase[0];
          String situacao = frase[frase.length-1];
-          System.out.println(codigo + situacao );
+         Materia materia = new Materia(codigo, situacao);
+         System.out.println(codigo + situacao );
         }
      }
         else{
@@ -35,7 +34,8 @@ public class PDFRead {
   }
     
   public static void main(String args[]){
-    try {
+    
+      try {
 	//Create PdfReader instance.
 	PdfReader pdfReader = new PdfReader("file:///home/ricardo/Documentos/historicoEscolarCRAprovados.pdf");	
  
@@ -49,7 +49,7 @@ public class PDFRead {
           String [] tokens = pageContent.split("\\n");
             for (int j = 0; j < tokens.length; j++) {
                 String token = tokens[j];
-                    isLinhaDeNota(token); 
+                isLinhaDeNota(token); 
                    
 //                System.out.println(token);
             }

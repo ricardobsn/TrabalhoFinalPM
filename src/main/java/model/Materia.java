@@ -10,15 +10,15 @@ package model;
  * @author ricardo
  */
 
-public class materia {
+public class Materia {
     private String codigo;
     private String situacao;
     
-    public materia(){
+    public Materia(){
         
     }
     
-    public materia(String codigo, String situacao) {
+    public Materia(String codigo, String situacao) {
         this.codigo = codigo;
         this.situacao = situacao;
     }
