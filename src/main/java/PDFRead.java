@@ -25,8 +25,10 @@ public class PDFRead {
          String [] frase = linha.split("\\s+");
          for (int j = 0; j < frase.length; j++) {
          String codigo = frase[0];
-          System.out.println(codigo);
-     }}
+         String situacao = frase[frase.length-1];
+          System.out.println(codigo + situacao );
+        }
+     }
         else{
          // nao contem;
                 }
@@ -47,11 +49,9 @@ public class PDFRead {
           String [] tokens = pageContent.split("\\n");
             for (int j = 0; j < tokens.length; j++) {
                 String token = tokens[j];
-//                    if(isLinhaDeNota()) {
-//                        //extrair informacoes
-//                        //ver se passou
-//                    }
-                System.out.println(token);
+                    isLinhaDeNota(token); 
+                   
+//                System.out.println(token);
             }
 	  //Print the page content on console.
 //	  System.out.println(var_1);
