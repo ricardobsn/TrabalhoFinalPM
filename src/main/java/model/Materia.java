@@ -35,4 +35,19 @@ public class Materia {
     public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
+
+    @Override
+    public String toString() {
+        return codigo + " - " + situacao; //To change body of generated methods, choose Tools | Templates.
+    }
+
+//    @Override
+//    public boolean equals(Object obj) {
+//        Materia outraMateria = (Materia) obj;
+//        return this.codigo.equals(outraMateria.codigo);
+//    }
+//    
+    
+    
+    
 }
