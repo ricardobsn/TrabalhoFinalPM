@@ -11,6 +11,7 @@ package model;
  */
 
 public class Materia {
+
     private String codigo;
     private String situacao;
     
@@ -41,13 +42,5 @@ public class Materia {
         return codigo + " - " + situacao; //To change body of generated methods, choose Tools | Templates.
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        Materia outraMateria = (Materia) obj;
-//        return this.codigo.equals(outraMateria.codigo);
-//    }
-//    
-    
-    
-    
+
 }
