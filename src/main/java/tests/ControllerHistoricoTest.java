@@ -78,11 +78,17 @@ public class ControllerHistoricoTest {
     @Test
     public void verificaQuantidadeDeOptativasPassadasTest() {
 
-        String[] materiasOptativas = {"TIN0141", "TIN0165", "TIN0128"};
         HashMap materias = new HashMap<String,String>();
         materias.put("TIN0141", "Aprovado");
-        int qtdeMaterias = controleHistorico.verificaQtdeDeOptCursadas(materiasOptativas);
         assertThat(materias.size(), is(1));
     }
 
+    @Test
+    public void verificaQuantidadeDeEletivasPassadasTest() {
+
+        HashMap materias = new HashMap<String,String>();
+        materias.put("TIN0151", "Aprovado");
+        materias.put("TIN0152", "Aprovado");
+        assertThat(materias.size(), is(2));
+    }
 }

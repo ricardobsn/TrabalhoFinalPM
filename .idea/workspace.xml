@@ -2,66 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb07a2af-5942-4e09-9f93-ce33ffed026b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_awt_util_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_bridge_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_css_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_dom_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_gvt_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_parser_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_rasterizer_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_script_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_svg_dom_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_swing_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_transcoder_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_util_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_xml_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_itextpdf_itext_pdfa_5_5_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_itextpdf_itext_xtra_5_5_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_itextpdf_itextpdf_5_5_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_itextpdf_tool_xmlworker_5_5_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_imaging_1_0_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xmlParserAPIs_2_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_04.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_ext_1_3_04.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/Imagens/descricao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/Imagens/historic_01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/Imagens/historic_02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/Imagens/icon_next.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/Imagens/topo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/control/ControleInicial.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/model/Materia.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/model/ProcessadorPDF.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/view/TelaInicial.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/src/main/java/view/TelaInicial.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/control/ControleInicial.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/model/Materia.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/model/ProcessadorPDF.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/view/TelaInicial$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/view/TelaInicial$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/view/TelaInicial$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/classes/view/TelaInicial.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/historicoPDF-1.0-SNAPSHOT.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TrabalhoFinalPM-master/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ProcessadorPDF.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/ControllerFluxograma.class" afterPath="$PROJECT_DIR$/target/classes/controller/ControllerFluxograma.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/ControllerHistorico.class" afterPath="$PROJECT_DIR$/target/classes/controller/ControllerHistorico.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/Main.class" afterPath="$PROJECT_DIR$/target/classes/controller/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/historicoPDF-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/historicoPDF-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/historicoPDF.iml" afterPath="$PROJECT_DIR$/historicoPDF.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output.svg" afterPath="$PROJECT_DIR$/output.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/ControllerFluxograma.java" afterPath="$PROJECT_DIR$/src/main/java/controller/ControllerFluxograma.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/ControllerHistorico.java" afterPath="$PROJECT_DIR$/src/main/java/controller/ControllerHistorico.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Main.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,9 +20,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1062">
               <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding>
-                <marker date="1511797872803" expanded="true" signature="4206:4529" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,14 +28,9 @@
       <file leaf-file-name="ControllerHistorico.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ControllerHistorico.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding>
-                <marker date="1511796037267" expanded="true" signature="3553:3840" ph="{...}" />
-                <marker date="1511796037267" expanded="true" signature="3888:4077" ph="{...}" />
-                <marker date="1511796037267" expanded="true" signature="4132:4168" ph="{...}" />
-                <marker date="1511796037267" expanded="true" signature="4198:4227" ph="{...}" />
-              </folding>
+            <state relative-caret-position="72">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,8 +38,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="121">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -304,7 +239,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -355,16 +290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ControllerFluxograma.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1062">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <marker date="1511797872803" expanded="true" signature="4206:4529" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/TelaInicial.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
@@ -375,21 +300,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ControllerHistorico.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <marker date="1511796037267" expanded="true" signature="3553:3840" ph="{...}" />
-            <marker date="1511796037267" expanded="true" signature="3888:4077" ph="{...}" />
-            <marker date="1511796037267" expanded="true" signature="4132:4168" ph="{...}" />
-            <marker date="1511796037267" expanded="true" signature="4198:4227" ph="{...}" />
-          </folding>
+        <state relative-caret-position="72">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ControllerFluxograma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1062">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="121">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>

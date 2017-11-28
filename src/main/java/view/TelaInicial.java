@@ -27,12 +27,13 @@ public class TelaInicial extends javax.swing.JFrame {
     /**
      * Creates new form Telainicial
      */
-    private ControllerHistorico historico;
-    private File arquivo;
+    private ControllerHistorico controle;
+    private File historico;
+    private File cronograma;
     
-        public TelaInicial(ControllerHistorico historico) {
+        public TelaInicial(ControllerHistorico controle) {
         initComponents();  
-        this.historico = historico;
+        this.controle = controle;
     }
     
     /**
@@ -46,8 +47,10 @@ public class TelaInicial extends javax.swing.JFrame {
 
         botaoSelecionarHistorico = new javax.swing.JButton();
         botaoOk = new javax.swing.JButton();
+        botaoSelecionarCronograma = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Faculdade");
 
         botaoSelecionarHistorico.setText("Selecionar Histórico Escolar");
         botaoSelecionarHistorico.addActionListener(new java.awt.event.ActionListener() {
@@ -63,28 +66,38 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        botaoSelecionarCronograma.setText("Selecionar Cronograma");
+        botaoSelecionarCronograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSelecionarCronogramaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(botaoSelecionarHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botaoSelecionarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(botaoSelecionarHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(92, 92, 92)
+                            .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(42, 42, 42)
                 .addComponent(botaoSelecionarHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botaoSelecionarCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,7 +111,7 @@ public class TelaInicial extends javax.swing.JFrame {
         fileChooser.setAcceptAllFileFilterUsed(false);
         int result = fileChooser.showOpenDialog(null);       
         if(result == JFileChooser.APPROVE_OPTION){  
-            arquivo = fileChooser.getSelectedFile();
+            historico = fileChooser.getSelectedFile();
             botaoSelecionarHistorico.setText("Histórico Selecionado");
         }   
         if(result == JFileChooser.CANCEL_OPTION){    
@@ -109,10 +122,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
         // TODO add your handling code here:
-        historico.leituraPDF(arquivo.getPath());
-        File file = new File("C:\\Users\\Rodrigo\\Desktop\\grade_curricular.svg");
-        file.getParentFile().mkdirs();
-        ControllerFluxograma editorFluxograma = new ControllerFluxograma(file, historico.getMapMaterias(), historico.getContOpt());
+        controle.leituraPDF(historico.getPath());        
+        cronograma.getParentFile().mkdirs();
+        ControllerFluxograma editorFluxograma = new ControllerFluxograma(cronograma, controle.getMapMaterias(), controle.getContOpt(), controle.getContEletiva());
         try {
             editorFluxograma.editFile();
         } catch (IOException ex) {
@@ -128,9 +140,27 @@ public class TelaInicial extends javax.swing.JFrame {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(this, "Arquivo gerado com sucesso !","OK", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_botaoOkActionPerformed
+
+    private void botaoSelecionarCronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarCronogramaActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter ("SVG", "svg");
+        fileChooser.setFileFilter (filtro);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        int result = fileChooser.showOpenDialog(null);       
+        if(result == JFileChooser.APPROVE_OPTION){  
+            cronograma = fileChooser.getSelectedFile();
+            botaoSelecionarCronograma.setText("Cronograma Selecionado");
+        }   
+        if(result == JFileChooser.CANCEL_OPTION){    
+            return;
+        }
+    }//GEN-LAST:event_botaoSelecionarCronogramaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +199,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoOk;
+    private javax.swing.JButton botaoSelecionarCronograma;
     private javax.swing.JButton botaoSelecionarHistorico;
     // End of variables declaration//GEN-END:variables
 }
