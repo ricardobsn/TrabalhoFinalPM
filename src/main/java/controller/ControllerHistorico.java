@@ -7,6 +7,7 @@ package controller;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 import java.util.HashMap;
+import view.TelaVisualizacao;
 
 public class ControllerHistorico {
 
@@ -18,7 +19,10 @@ public class ControllerHistorico {
     private int contEletiva = 0;
     private double cr= 0.0;    
     private String [] palavras;
-    private String matricula;
+    private String nomeAluno;
+    private int anoMatricula;
+    private int anoCorrente;
+    private TelaVisualizacao telaVisualizacao = new TelaVisualizacao(this);
 
     public ControllerHistorico(){
     }
@@ -41,20 +45,21 @@ public class ControllerHistorico {
                         criaListaMaterias(token);
                     
                     else if(isLinhaDeCoeficienteGeral(token)){
-                        cr = pegaCoeficienteGeral(token);
+                       cr = pegaCoeficienteGeral(token);
                     }
                     else if(isLinhaDeMatricula(token)){
-                       int anoMatricula = pegaMatricula(token);                        
+                       anoMatricula = pegaMatricula(token);                        
                     }
                     else if(isLinhaDeNomeAluno(token)){
-                       String nomeAluno = pegaNome(token);                        
+                       nomeAluno = pegaNome(token);                        
                     }
                     else if(isLinhaDeAnoCorrente(token)){
-                       int anoCorrente = pegaAnoCorrente(token);                        
+                       anoCorrente = pegaAnoCorrente(token);                        
                     }
                 }
             }
             verificaJubilamento(cr);
+            quantidadeDeAnosNaFaculdade(anoMatricula, anoCorrente);
             verificaQtdeDeOptCursadas(materiasOptativas);
             verificaQtdeDeEletivasCursadas(materiasEletivas);  
             //Fecha o PdfReader.
@@ -63,7 +68,7 @@ public class ControllerHistorico {
             e.printStackTrace();
         }
     }
-
+    
     /*Verifica se é uma linha de nota*/
     public  boolean isLinhaDeNota(String linha){
      
@@ -122,7 +127,7 @@ public class ControllerHistorico {
         if(linha.startsWith("Matrícula")){
             palavras = linha.split("\\s+");
             String matriculaAux = palavras[1];
-            matricula = matriculaAux.substring(0, 4);
+            String matricula = matriculaAux.substring(0, 4);
             anoMatricula = Integer.parseInt(matricula);             
         }  
         return anoMatricula;
@@ -172,7 +177,6 @@ public class ControllerHistorico {
         }
     }
     
-
     /*Contador de materias opt cursadas e passadas, visto q caso aluno tenha repetido, o mesmo não precisa cursá- la novamente*/
     public int verificaQtdeDeOptCursadas(String[] materiasOptativas){
     
@@ -197,32 +201,40 @@ public class ControllerHistorico {
         return contEletiva;
     }
 
+    /*Verifica se tem CRA menor que 4,0 e quatro ou mais reprovações em uma mesma disciplina e mostra na tela*/
     public void verificaJubilamento(Double cr){
 
-        if ((cr < 4) && (mapMateriasAUX.containsValue(4))){
-            System.out.println("Aluno precisa ser jubilado...");
+        int[] numeros = {4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+        for(int j= 0; j< numeros.length; j++){
+            if ((cr < 4) && (mapMateriasAUX.containsValue(numeros[j]))) {
+                telaVisualizacao.getLabelJubilamento().setText("Você será Jubilado !");
+            }
         }
-
     }
     
-    public int quantidadeDeAnosNaFaculdade(int entrada, int atual){
+    /*Verifica as condições de integralização, prorrogação e jubilamento por tempo de entrada e permanência no curso*/
+    public void quantidadeDeAnosNaFaculdade(int entrada, int atual){
         
         int anosNaFaculdade = 0;
         if (entrada < 2013){
             anosNaFaculdade = atual - entrada;
-            if (anosNaFaculdade >= 7){
-                
+            if (anosNaFaculdade == 6){
+                telaVisualizacao.getLabelIntegracao().setText("Antes 2014 no 6° ano deve pedir prorrogação !"); 
+            }
+            else if (anosNaFaculdade >= 7){
+                telaVisualizacao.getLabelIntegracao().setText("Antes 2014 no 7° ano será Jubilado !");
             }
         }
         else if (entrada > 2013){
             anosNaFaculdade = atual - entrada;
-            if (anosNaFaculdade >= 6){
-                
+            if (anosNaFaculdade >= 3){
+                telaVisualizacao.getLabelIntegracao().setText("Depois 2014 no 7° período deve pedir prorrogação !");
+            }
+            else if (anosNaFaculdade >= 6){
+                telaVisualizacao.getLabelIntegracao().setText("Depois 2014 6° será Jubilado !");
             }
         }
-        return anosNaFaculdade;
     }
-
 
     public HashMap<String, String> getMapMaterias() {
 
@@ -239,6 +251,25 @@ public class ControllerHistorico {
         return contEletiva;
     }
 
+    public double getCr() {
+        return cr;
+    }
+
+    public String getNomeAluno() {
+        return nomeAluno;
+    }
+
+    public int getAnoMatricula() {
+        return anoMatricula;
+    }
+
+    public int getAnoCorrente() {
+        return anoCorrente;
+    }
+    
+    public TelaVisualizacao getTelaVisualizacao() {
+        return telaVisualizacao;
+    }
 }
 
  
