@@ -21,23 +21,36 @@ public class ControllerFluxograma {
     private DocumentBuilderFactory  docFactory;
     private Document doc;
     private int contOpt;
+    private int contEletiva;
     private static HashMap<String, String> mapMaterias = new HashMap<>();
     private final String VERMELHO = "ff0000";
     private final String VERDE = "01f900";
-    private final String BRANCO = "ffffff";
 
-    public ControllerFluxograma(File arquivo, HashMap<String, String> mapMaterias, Integer contOpt){
+    public enum Status{
+        APROVADO, REPROVADO, PENDENTE
+    }
+
+    public ControllerFluxograma(File arquivo, HashMap<String, String> mapMaterias, Integer contOpt, Integer contEletiva ){
         this.arquivo = arquivo;
         this.mapMaterias = mapMaterias;
         this.contOpt = contOpt;
+        this.contEletiva = contEletiva;
+        
+    }
+
+    public ControllerFluxograma(){
+
     }
 
     public void editFile() throws IOException, ParserConfigurationException, SAXException {
+
         docFactory = DocumentBuilderFactory.newInstance();
         doc = docFactory.newDocumentBuilder().parse(arquivo.toString());
     }
 
-    public void pathParser() throws IOException, TransformerException{
+    /*Faz o Parser do documento XML e separa em nós*/
+    public void pathParser() throws Exception {
+
         doc.getDocumentElement().normalize();
         NodeList listOfPathNodes = doc.getElementsByTagName("path");
         int totalPaths = listOfPathNodes.getLength();
@@ -45,57 +58,75 @@ public class ControllerFluxograma {
         for(int i = 0; i < totalPaths; i++){
             Element el = (Element) listOfPathNodes.item(i);
             String id = el.getAttribute("id");   // Get id data
-            verificaSeAMateriaFoiCursada(id, mapMaterias, el);
+            Status status = verificaSeAMateriaFoiCursada(id, mapMaterias);
+            atualizaACor(status, el);
         }
-        pintaMateriasOptativas();
+        pintaMateriasOptativasEEletivas();
         salvarAlteracoes(doc);
     }
 
-    /*Percorre dentro dos nós os ids das matérias e pinta com a cor correspondente*/
-    public void verificaSeAMateriaFoiCursada(String idMateria, HashMap<String, String> mat, Element el){
-        String situacao = mat.get(idMateria);
-        String estilo = el.getAttribute("style");
-        String estiloContinuacao = estilo.substring(11, estilo.length());
+   /*Verifica dentro do Map de matérias cursadas se o aluno passou ou não*/
+    public Status verificaSeAMateriaFoiCursada(String idMateria, HashMap<String, String> materias){
 
-        if (!estilo.contains("none")){
-            if (("Aprovado".equals(situacao)) || ("nota".equals(situacao))){
-                estilo = "fill:#"+ VERDE + estiloContinuacao; // concatena a string com o valor da cor nova
-
-            }
-            else if ("por".equals(situacao)){
-                estilo = "fill:#"+ VERMELHO + estiloContinuacao;
-            }
-            else{
-                estilo = "fill:#"+ BRANCO + estiloContinuacao;
-            }
-            el.setAttribute("style",estilo);
-        }
+        String situacao = materias.get(idMateria);
+        if (("Aprovado".equals(situacao)) || ("nota".equals(situacao))) // Aprovado ou dispensado
+            return Status.APROVADO;
+        else if ("por".equals(situacao)) // Reprovado
+            return Status.REPROVADO;
+        else // Pendente
+            return Status.PENDENTE;
     }
 
-    /*Verifica a partir da qtde de materias opt q foram cursadas, qtde q tem q pintar*/
-    public void pintaMateriasOptativas(){
+    /*Percorre dentro dos nós os ids das matérias e pinta com a cor correspondente*/
+    public void atualizaACor(Status status, Element el){
+
+        String estilo = el.getAttribute("style");
+        String estiloContinuacao = estilo.substring(11, estilo.length());
+        String cor = null;
+
+        if (status.equals(Status.PENDENTE)) //Como a materia não foi cursada não preicsa ser atualizada
+            return;
+
+        if (status.equals(Status.APROVADO))
+            cor = VERDE;
+        else // Se reprovado
+            cor = VERMELHO;
+
+        estilo = "fill:#"+ cor + estiloContinuacao; // concatena a string com o valor da cor nova
+        el.setAttribute("style",estilo);
+
+    }
+
+    /*Verifica a partir da qtde de materias opt e eletivas q foram cursadas, qtde q tem q pintar*/
+    public void pintaMateriasOptativasEEletivas(){
 
         doc.getDocumentElement().normalize();
         NodeList listaDeTodosNos = doc.getElementsByTagName("path");
         int caminhosTotais = listaDeTodosNos.getLength();
         int qtdOpt = 0;
+        int qtdEletiva = 0;
 
         for(int i = 0; i < caminhosTotais; i++){
             Element  el = (Element) listaDeTodosNos.item(i);
             String id = el.getAttribute("id");   // Pega o id da Materia dentro do SVG
             String estilo = el.getAttribute("style"); // Pega o estilo correspondente
-            String estiloContinuacao = estilo.substring(12, estilo.length());
+            String estiloContinuacao = estilo.substring(11, estilo.length());
 
-            if(id.startsWith("OPTATIVA") && qtdOpt < contOpt){
+            if(id.startsWith("OPTATIVA") && qtdOpt < contOpt){  //Pinta a qtde correspondente de opt cursadas e contOpt serve como condição de parada
                 estilo = "fill:#"+ VERDE + estiloContinuacao;
                 qtdOpt = qtdOpt+1;
+            }
+            
+             if(id.startsWith("ELETIVA") && qtdEletiva < contEletiva){  //Pinta a qtde correspondente de eletivas cursadas e contEletiva serve como condição de parada
+                estilo = "fill:#"+ VERDE + estiloContinuacao;
+                qtdEletiva = qtdEletiva+1;
             }
 
         el.setAttribute("style",estilo);
 
         }
     }
-
+    
     /*Gera um fluxograma novo com as alterações*/
     public void salvarAlteracoes(Document d) throws IOException, TransformerException{
 
